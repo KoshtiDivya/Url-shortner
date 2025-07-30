@@ -26,24 +26,6 @@ A full-stack **URL Shortener** web application built with **Node.js**, **Express
 
 ---
 
-## 🧑‍💻 Folder Structure
-UrlShortner/
-├── controllers/
-├── frontEnd/
-├── middelwares/
-├── models/
-├── routes/
-├── services/
-├── views/
-├── index.js
-├── connection.js
-├── .gitignore
-├── package.json
-└── README.md
-
-
----
-
 ## 🚀 Getting Started
 
 ### 1. Clone the Repository
@@ -51,27 +33,24 @@ UrlShortner/
 git clone https://github.com/KoshtiDivya/Url-shortner.git
 cd Url-shortner
 
-2. Install Dependencies
+### 2. Install Dependencies
 
 npm install
 
-3. Set Up Environment Variables
+### 3. Set Up Environment Variables
 Create a .env file in the root and add:
 
 MONGO_URL=your_mongodb_uri
 JWT_SECRET=your_jwt_secret_key
 PORT=3000
 
-4. Run the App
+### 4. Run the App
 
 npm start
 Visit: http://localhost:3000
 
-📸 Screenshots
-
-
-🙋‍♀️ Author
-Divya Koshti
+### 🙋‍♀️ Author
+Divya Koshti <br>
 GitHub
 
 
