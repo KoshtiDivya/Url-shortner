@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Url shortner</title>
+    <link rel="styleSheet" href="./index.css"> 
+</head>
+<body>
+ <div class="container">
+    <div id="heading"><h1>Url Shorter</h1></div>
+    <form class="generateShortUrl" id="getUrl">  
+        <label>Enter Url :</label>
+        <input type="text" name="url" id="url"/>
+        <button type="submit" >Short Url</button>
+        <p id="result"></p>
+    </form>
+</div>
+
+<script>
+    // Handle form submission
+    document.getElementById('getUrl').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission behavior
+      
+      const url = document.getElementById('url').value;
+      // Send data to the backend
+      fetch('http://localhost:8001/url', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url : url }) // Convert data to JSON
+      })
+      .then(response => response.json())
+      .then(shortUrl => {
+        // Display result from backend
+        document.getElementById('result').innerText = `Short Url : http://localhost:8001/url/${shortUrl.id}`;
+      })
+      .catch(error => console.error('Error:', error));
+    });
+</script>
+</body>
+</html>

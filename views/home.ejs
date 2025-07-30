@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Url Shortner</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: none;
+        background-color: rgb(0, 0, 44);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        font-family: Arial, Helvetica, sans-serif;
+        align-items: center;
+        color: white;
+      }
+      .container {
+        display: flex;
+        height: 400px;
+        width: 400px;
+        justify-content: center;
+        flex-direction: column;
+        background-color: rgb(14, 4, 131);
+        border: 2px solid black;
+        padding: 2rem;
+        margin-top: 3rem;
+      }
+
+      #heading {
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .generateShortUrl {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 200px;
+        padding: 2rem;
+      }
+      .generateShortUrl > input {
+        height: 25px;
+        font-size: 14px;
+      }
+      button {
+        width: fit-content;
+        padding: 0.5rem;
+        border: 2px solid yellow;
+        background-color: cyan;
+        color: black;
+        cursor: pointer;
+      }
+      table{
+        width : 800px;
+        height : fit-content;
+        margin-bottom: 50px;
+        border : 2px solid yellow;
+        text-align: center;
+        border-collapse: collapse;
+      }
+      table> tr,th, td {
+        padding : 10px;
+        border : 2px solid yellow;
+      }
+      button{
+        cursor : pointer;
+      }
+      .btns{
+         display:  flex;
+         justify-content: space-around;
+      }
+    </style>
+  </head>
+  <body>
+   
+    <div class="container">
+      <div id="heading"><h1>Url Shorter</h1></div>
+      <form class="generateShortUrl" id="getUrl" method="Post" action="/url">
+        <label>Enter Url :</label>
+        <input type="text" name="url" id="url" placeholder="http://www.example.com" />
+        <button type="submit">Generate ShortURL</button>
+        <% if (locals.id) { %>
+            <p>http://localhost:8001/url/<%- id %></p>
+        <% } %>
+       
+      </form>
+      <div class="btns">
+          <button style='background-color: rgb(0, 0, 44); color : white' onclick="window.location.href='/'">Back</button>
+          <button style="background-color: rgb(0, 0, 44); color : white" onclick="window.location.href='/login'">Logged Out</button>
+      </div>
+     
+    </div>
+    <br><br>
+    <div>
+        
+        <h2>Database table</h2>
+        <% if (locals.urls) { %>
+          <table style="color: white;">
+            <thead>
+                <th>Sr no.</th>
+                <th>Original Url</th>
+                <th>ShortId</th>
+                <th>Total clicks</th>
+            </thead>
+            <tbody>
+                   <% urls.forEach((url, index) => { %>
+                        <tr>
+                       <td><%= index+1 %></td>
+                       <td><%= url.redirectUrl %></td>
+                       <td><%= url.shortId %></td>
+                       <td><%= url.visitedHistory.length %></td>
+                        </tr>
+                    <% }) %>
+                </tr>
+            </tbody>
+          </table>
+        <% } %>
+    </div>
+  </body>
+</html>

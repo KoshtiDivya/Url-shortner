@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+    <style>
+        body {
+        margin: 0;
+        padding: 0;
+        box-sizing: none;
+        background-color: rgb(0, 0, 44);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        font-family: Arial, Helvetica, sans-serif;
+        align-items: center;
+        color: white;
+      }
+      .container {
+        display: flex;
+        height: 30vh;
+        width: 30vw;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgb(14, 4, 131);
+        border: 2px solid black;
+        padding: 2rem;
+        margin-top: 3rem;
+      }
+     
+      .container  label{
+        display : block;
+      }
+      .container input{
+         width : 80%;
+         margin-top : 1rem;
+      }
+      .container button{
+        padding : 0.5rem 1rem;
+        cursor: pointer;
+        border-radius: 2rem;
+      }
+       .container button:hover{
+         background-color: green;
+         color: white;
+      }
+      .container form{
+        width: 90%;
+      }
+       @media (max-width: 768px){
+        .container{
+              width : 60%
+        }
+    }
+    a{
+        color : white;
+    }
+    a:hover{
+        color : green
+    }
+    </style>
+
+</head>
+<body>
+    <h1>Login</h1>
+    <div class="container">
+       <form action="/user/login" method="post">
+       <label for="email">Enter Email : </label>
+       <input type="email" name="email" required /> <br><br>
+       <label for="password">Enter Password: </label>
+       <input type="password" name="password" required /><br><br>
+
+       <button type="submit">Login</button>
+       <p>Don't have an account? <a href="/signUp">SignUp</a></p>
+       </form>
+    </div>
+    
+</body>
+</html>
